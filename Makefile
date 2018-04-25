@@ -32,8 +32,7 @@ STM32_USBFS_Driver_SOURCES = $(wildcard Libraries/STM32_USB-FS-Device_Driver/src
 SOURCES = $(USER_SOURCES) \
 		  $(STM32F3_Discovery_SOURCES) \
 		  $(STM32F30x_StdPeriph_Driver_SOURCES) \
-		  $(STM32_USBFS_Driver_SOURCES)
-
+		  $(STM32_USBFS_Driver_SOURCES) 
 
 # Set Include Paths
 INCLUDES 	= -I./inc/ \
@@ -41,10 +40,11 @@ INCLUDES 	= -I./inc/ \
 			-I./Libraries/STM32F30x_StdPeriph_Driver/inc/ \
 			-I./Libraries/STM32_USB-FS-Device_Driver/inc/ \
 			-I./Libraries/STM32F3_Discovery/ \
-			-I./Libraries/CMSIS/Include/
-					
+			-I./Libraries/CMSIS/Include/  		
 # Set Libraries
 LIBS		= -lm -lc
+
+
 
 ###################################################
 # Set Board
@@ -56,7 +56,7 @@ OPTIMIZE	= -O3
 
 # Set Compilation and Linking Flags
 CFLAGS 		= $(MCU) $(FPU) $(DEBUG) -Wall -std=gnu90 $(OPTIMIZE) -ffunction-sections -fdata-sections
-FPU_CFLAGS 	= -L/home/jasdf/bin/gcc-arm-none-eabi-4_6-2012q2/lib/fpu/
+FPU_CFLAGS 	= -L/opt/gcc-arm-none-eabi-4_6-2012q2/lib/gcc/arm-none-eabi/4.6.2/fpu/
 ASFLAGS 	= $(MCU) $(FPU) $(DEBUG) -Wa,--warn -x assembler-with-cpp
 LDFLAGS 	= $(MCU) $(FPU) $(DEBUG) -gdwarf-2 -Tstm32f30_flash.ld -Xlinker --gc-sections -Wl,-Map=$(PROJ_NAME).map $(LIBS)
 CPPFLAGS	= $(INCLUDES) $(DEFINES)
@@ -80,6 +80,10 @@ stm32f3_discovery.a: $(subst .c,.o,$(STM32F3_Discovery_SOURCES))
 	@$(AR) rcs $@ $^
 
 stm32f30x_stdperiph_driver.a: $(subst .c,.o,$(STM32F30x_StdPeriph_Driver_SOURCES))
+	@echo [A] $@
+	@$(AR) rcs $@ $^
+
+stm32_usbfs_driver.a: $(subst .c,.o,$(STM32_USBFS_Driver_SOURCES))
 	@echo [A] $@
 	@$(AR) rcs $@ $^
 
@@ -115,7 +119,7 @@ info: $(PROJ_NAME).elf
 
 install-ocd: $(PROJ_NAME).elf
 	@$(shell killall -9 openocd)
-	@$(shell openocd -f /usr/local/share/openocd/scripts/board/stm32f3discovery.cfg -c init -c"reset halt" -c"flash erase_sector 0 0 127" -c"flash write_image $(PROJ_NAME).elf" -c"reset init" -c"reset run" -c"exit")
+	@$(shell openocd -f /usr/share/openocd/scripts/board/stm32f3discovery.cfg -c init -c"reset halt" -c"flash erase_sector 0 0 127" -c"flash write_image $(PROJ_NAME).elf" -c"reset init" -c"reset run" -c"exit")
 
 #ocd-shell: stm32f3.bin
 #	telnet localhost 4444
