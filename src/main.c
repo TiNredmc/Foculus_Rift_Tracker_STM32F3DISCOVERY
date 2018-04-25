@@ -71,7 +71,7 @@
 #include "stm32f3_discovery.h"
 #include "globalVariables.h"
 #include "peripherals.h"
-
+#include "ssd1306.h"
 /* Init global variables -----------------------------------------------------*/
 RiftDisplayInfoFrameSep dataDisplayInfo;
 RiftKeepAliveFrameSep dataKeepAlive;
@@ -154,6 +154,11 @@ void handleButton(){
  * @retval None
  */
 int main(void) {
+	//test oled
+		ssd1306_Init();
+		delayms( 100 );
+		ssd1306_Fill(White);
+		ssd1306_UpdateScreen();
 	uint8_t i;	//Generic for loop counter variable
 	/* Setup SysTick event each 1 ms */
 	RCC_GetClocksFreq( &RCC_Clocks );
