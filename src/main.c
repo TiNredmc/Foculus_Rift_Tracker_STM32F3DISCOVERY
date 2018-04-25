@@ -72,6 +72,7 @@
 #include "globalVariables.h"
 #include "peripherals.h"
 #include "ssd1306.h"
+#include "fonts.h"
 /* Init global variables -----------------------------------------------------*/
 RiftDisplayInfoFrameSep dataDisplayInfo;
 RiftKeepAliveFrameSep dataKeepAlive;
