@@ -41,7 +41,8 @@
 #include "usb_istr.h"
 #include "stm32f30x_it.h"
 #include "usb_desc.h"
-
+#include "ssd1306.h"
+#include "fonts.h"
 
 /* Exported variables ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
