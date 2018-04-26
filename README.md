@@ -1,9 +1,11 @@
 Forked By TinLethax
 =
 # update:
+
 I use 4ilo's ssd1306 library .link:https://github.com/4ilo/ssd1306-stm32HAL
 But I replace HAL with "STM32F30x_StdPeriph_Driver" instead ;D 
 changed the ssd1306 oled size form 128x64 to 128x32 (I use 0.91" display.But if you have a 128x64 .you can change it in sdd1306.h in Inc folder ;D).
+# The OLED MUST CONNECTED TO i2c2 not i2c1 .
 The "Foculus Rift" tracker
 ==========================
 A USB HID device, sending Accelerometer, Gyroscope and Magnetometer data over USB in an Oculus Rift compatible format.
