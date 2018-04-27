@@ -53,6 +53,8 @@ Organization of the code
  usb_endp.c       STM USB driver endpoint1 callbacks, just sets some global flags to inform the main routine when there is new data
  usb_prop.c       Customization of the STM USB driver, so feature reports can be sent and received
                   received data is copied in the global array featureReportData[] and then processed by the main loop
+ fonts.c          fonts for SSD1036 library
+ ssd1306          library to send data to ssd1306 OLED display.send out from i2c number 2 port.                    
 </pre>
 
 Flashing the STM32F3DISCOVERY board
@@ -119,3 +121,4 @@ Changelog
  11.05.2014:  Experimental: Setting of board orientation ...
               Push the user button for > 1 s to choose between 8 preconfigured orientation settings
               Push the user button again for > 1 s to save the setting to FLASH memory
+ 27.04.2018   Added th OLED library .interface @ i2c number2 .OLED display .e-compass temperature and gyroscope data
