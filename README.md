@@ -1,13 +1,14 @@
 Forked By TinLethax
 =
-# update:
 
 # update0:
 I use 4ilo's ssd1306 library .link:https://github.com/4ilo/ssd1306-stm32HAL
 But I replace HAL with "STM32F30x_StdPeriph_Driver" instead ;D 
-changed the ssd1306 oled size form 128x64 to 128x32 (I use 0.91" display.But if you have a 128x64 .you can change it in sdd1306.h in Inc folder ;D).
+changed the ssd1306 oled size form 128x64 to 128x32 (I use 0.91" display.But if you have a 128x64 .you can change it in sdd1306.h in Inc folder ;D.
+
 # update1:
 I added the temperature and gyroscope sensor date display out to OLED Display .But I stuck @ I dont have a hardware now (I will order it soon).So if you wanna test.just test it rn ;D.
+
 # The OLED MUST CONNECTED TO i2c2 not i2c1 .
 The "Foculus Rift" tracker
 ==========================
