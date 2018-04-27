@@ -237,8 +237,18 @@ int main(void) {
 			}
 			break;
 		}
-	}
-}
+		ssd1306_Init();
+	    delayms( 100 );
+	    ssd1306_SetCursor(0,0);
+	    ssd1306_WriteString(tempBuffer,Font_11x18,White);
+		ssd1306_UpdateScreen();
+		ssd1306_Init();
+	    delayms( 100 );
+	    ssd1306_SetCursor(0,1);
+	    ssd1306_WriteString(gyroBuffer,Font_11x18,White);
+	    ssd1306_UpdateScreen();
+	} // end loop
+}//for void main
 
 // Copy data form the memory buffer used by the USB interrupt
 // to the structs used by the main routine, which are useful for decoding purposes
