@@ -33,8 +33,8 @@
 // usb_endp.c       STM USB driver endpoint1 callbacks, just sets some global flags to inform the main routine when there is new data
 // usb_prop.c       Customization of the STM USB driver, so feature reports can be sent and received
 //                  received data is copied in the global array featureReportData[] and then processed by the main loop
-// fonts.c          fonts for ssd1306.c
-// ssd1306.c        library for SSD1306 OLED display .
+// fonts.c          fonts for SSD1036 library
+// ssd1306          library to send data to ssd1306 OLED display.send out from i2c number 2 port.
 
 // THings to implement
 //------------------------------------------------------------------
@@ -62,7 +62,10 @@
 // 11.05.2014:	Experimental: Setting of board orientation ...
 //				Push the user button for > 1 s to choose between 8 preconfigured orientation settings
 //				Push the user button again for > 1 s to save the setting to FLASH memory
-
+// 27.04.2018   Added th OLED library .interface @ i2c number2 .OLED display .e-compass temperature and gyroscope data
+//
+//
+//
 #pragma pack(1)		//If this is not defined, GCC Will use padding bytes and mess up the union structs
 
 /* Includes ------------------------------------------------------------------*/
@@ -240,13 +243,20 @@ int main(void) {
 		}
 		ssd1306_Init();
 	    delayms( 100 );
-	    ssd1306_SetCursor(0,0);
-	    ssd1306_WriteString(tempBuffer,Font_11x18,White);
-		ssd1306_UpdateScreen();
-		ssd1306_Init();
-	    delayms( 100 );
-	    ssd1306_SetCursor(0,1);
-	    ssd1306_WriteString(gyroBuffer,Font_11x18,White);
+	    ssd1306_SetCursor(0,0);//set cursor to x=0 y=0
+	   	ssd1306_WriteString('Temp=',Font_11x18,White);//Temp=
+	    ssd1306_SetCursor(5,0);//set cursor to x=5 y=0
+	    ssd1306_WriteString(tempBuffer,Font_11x18,White); //Temp=tempBuffer value
+	    ssd1306_SetCursor(0,1);//set cursor to x=0 y=1
+	    ssd1306_WriteString(gyroBuffer[0],Font_11x18,White);//show gyro data I think its "x axis"
+	    ssd1306_SetCursor(4,1);//set cursor to x=4 y=1
+	    ssd1306_WriteChar(',',Font_11x18,White);
+	    ssd1306_SetCursor(5,1);//set cursor to x=5 y=1
+	    ssd1306_WriteString(gyroBuffer[1],Font_11x18,White);//show gyro data I think its "y axis"
+	    ssd1306_SetCursor(8,1);//set cursor x=8 y=1
+	    ssd1306_WriteChar(',',Font_11x18,White);
+	    ssd1306_SetCursor(9,1);//set cursor x=9 y=1
+	    ssd1306_WriteString(gyroBuffer[2],Font_11x18,White);//show gyro data I think its "z axis"
 	    ssd1306_UpdateScreen();
 	} // end loop
 }//for void main
