@@ -33,7 +33,8 @@
 // usb_endp.c       STM USB driver endpoint1 callbacks, just sets some global flags to inform the main routine when there is new data
 // usb_prop.c       Customization of the STM USB driver, so feature reports can be sent and received
 //                  received data is copied in the global array featureReportData[] and then processed by the main loop
-
+// fonts.c          fonts for ssd1306.c
+// ssd1306.c        library for SSD1306 OLED display .
 
 // THings to implement
 //------------------------------------------------------------------
