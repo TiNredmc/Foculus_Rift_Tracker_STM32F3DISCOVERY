@@ -64,8 +64,8 @@
 //				Push the user button again for > 1 s to save the setting to FLASH memory
 // 27.04.2018   Added the OLED library .interface @ i2c number2 .OLED display .e-compass temperature and gyroscope data
 //
-//
-//
+
+
 #pragma pack(1)		//If this is not defined, GCC Will use padding bytes and mess up the union structs
 
 /* Includes ------------------------------------------------------------------*/
@@ -244,18 +244,20 @@ int main(void) {
 		ssd1306_Init();
 	    delayms( 100 );
 	    ssd1306_SetCursor(0,0);//set cursor to x=0 y=0
-	    ssd1306_WriteString("Temp=",Font_11x18,White);//Temp=
+	   	ssd1306_WriteString("Temp=",Font_11x18,White);//Temp=
 	    ssd1306_SetCursor(5,0);//set cursor to x=5 y=0
 	    ssd1306_WriteString(tempBuffer,Font_11x18,White); //Temp=tempBuffer value
 	    ssd1306_SetCursor(0,1);//set cursor to x=0 y=1
+	    ssd1306_WriteString("GyroX=",Font_11x18,White);//GyroX=
+	    ssd1306_SetCursor(6,1);//set cursor to x=6 y=1
 	    ssd1306_WriteString(gyroBuffer[0],Font_11x18,White);//show gyro data I think its "x axis"
-	    ssd1306_SetCursor(4,1);//set cursor to x=4 y=1
-	    ssd1306_WriteChar(',',Font_11x18,White);//separate the output
-	    ssd1306_SetCursor(5,1);//set cursor to x=5 y=1
+	    ssd1306_SetCursor(0,2);//set cursor to x=0 y=2
+	    ssd1306_WriteString("GyroY=",Font_11x18,White);//GyroY
+	    ssd1306_SetCursor(6,2);//set cursor to x=6 y=2
 	    ssd1306_WriteString(gyroBuffer[1],Font_11x18,White);//show gyro data I think its "y axis"
-	    ssd1306_SetCursor(8,1);//set cursor x=8 y=1
-	    ssd1306_WriteChar(',',Font_11x18,White);//separate the output
-	    ssd1306_SetCursor(9,1);//set cursor x=9 y=1
+	    ssd1306_SetCursor(0,3);//set cursor x=0 y=3
+	    ssd1306_WriteString("GyroZ=",Font_11x18,White);//GyroZ=
+	    ssd1306_SetCursor(6,1);//set cursor x=6 y=3
 	    ssd1306_WriteString(gyroBuffer[2],Font_11x18,White);//show gyro data I think its "z axis"
 	    ssd1306_UpdateScreen();
 	} // end loop
