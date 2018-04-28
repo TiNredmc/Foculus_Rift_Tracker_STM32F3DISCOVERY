@@ -244,7 +244,7 @@ int main(void) {
 		ssd1306_Init();
 	    delayms( 100 );
 	    ssd1306_SetCursor(0,0);//set cursor to x=0 y=0
-	   	ssd1306_WriteString('Temp=',Font_11x18,White);//Temp=
+	    ssd1306_WriteString("Temp=",Font_11x18,White);//Temp=
 	    ssd1306_SetCursor(5,0);//set cursor to x=5 y=0
 	    ssd1306_WriteString(tempBuffer,Font_11x18,White); //Temp=tempBuffer value
 	    ssd1306_SetCursor(0,1);//set cursor to x=0 y=1
