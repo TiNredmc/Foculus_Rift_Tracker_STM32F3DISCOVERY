@@ -9,6 +9,9 @@ changed the ssd1306 oled size form 128x64 to 128x32 (I use 0.91" display.But if 
 # update1:
 I added the temperature and gyroscope sensor date display out to OLED Display .But I stuck @ I dont have a hardware now (I will order it soon).So if you wanna test.just test it rn ;D.
 
+# update2:
+I changed the i2c timing mode to 400kHz.
+
 # The OLED MUST CONNECTED TO i2c2 not i2c1 .
 The "Foculus Rift" tracker
 ==========================
@@ -16,26 +19,13 @@ A USB HID device, sending Accelerometer, Gyroscope and Magnetometer data over US
 
 This project comes in useful, if you are building your own DIY Head Mounted Display. It solves the problem of finding a motion tracker. The firmware runs on the STM32F3DISCOVERY board and should be compatible with all Oculus Rift games.
 
-Note
------
-This project is not maintained anymore and is kept here for documentation purposes only. Feel free to fork and continue the development.
-
 Development blog
 ------------------
 More details about the reverse engineering can be found on the [development blog](http://yetifrisstlama.blogspot.fr/2014/03/the-foculus-rift-part-2-reverse.html).
 
 Current Status
 ------------------
-I have been testing the headtracker under Ubuntu 13.10 and Windows 7 with various demos intended for the Oculus Rift. It is very usable already and I guess its performance in timing and accuracy is on the same level as the Oculus Rift DK1 headtracker. However, as I don't have an original Rift to compare, I would appreciate your feedback on this.
-
-There is however still an issue with slow drift. In the latest version this has been minimized by a short calibration routine for the gyroscope. Nonetheless, I found out, that the Oculus SDK sporadically disables the correction from the magnetometer for reasons which I do not yet understand. Further work on this might be necesarry.
-
-Things to implement
------------------------
- * Evaluate the flags, I still do not have a clue what they are used for
- * What is this mysterious 16 bit command field in the Oculus packets for?
- * FixMe: There is this strange synchronization issue, where featureReportData[] sometimes contains invalid data when evaluated in main()
-
+Old code before I will forked to here is normally working.But mine dunknown because I haven't test it.
 
 Organization of the code
 -------------------------
@@ -122,3 +112,4 @@ Changelog
               Push the user button for > 1 s to choose between 8 preconfigured orientation settings
               Push the user button again for > 1 s to save the setting to FLASH memory
  27.04.2018   Added th OLED library .interface @ i2c number2 .OLED display .e-compass temperature and gyroscope data
+ 29.04.2018   Changed the OLED i2c timing (400kHz)
