@@ -33,7 +33,7 @@ void i2c2_init(void)
 	i2c.I2C_DigitalFilter	= 0x00;
 	i2c.I2C_Ack		= I2C_Ack_Enable;
 	i2c.I2C_AcknowledgedAddress = I2C_AcknowledgedAddress_7bit;
-	i2c.I2C_Timing		= 0x10C08DCF; // 0xC062121F;
+	i2c.I2C_Timing		= 0x0010020A; // 0xC062121F;
 
 	I2C_Init(I2C2, &i2c);
 	I2C_Cmd(I2C2, ENABLE);
