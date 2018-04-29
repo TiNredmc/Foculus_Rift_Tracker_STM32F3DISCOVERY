@@ -257,7 +257,7 @@ int main(void) {
 	    ssd1306_WriteString(gyroBuffer[1],Font_11x18,White);//show gyro data I think its "y axis"
 	    ssd1306_SetCursor(0,3);//set cursor x=0 y=3
 	    ssd1306_WriteString("GyroZ=",Font_11x18,White);//GyroZ=
-	    ssd1306_SetCursor(6,1);//set cursor x=6 y=3
+	    ssd1306_SetCursor(6,3);//set cursor x=6 y=3
 	    ssd1306_WriteString(gyroBuffer[2],Font_11x18,White);//show gyro data I think its "z axis"
 	    ssd1306_UpdateScreen();
 	} // end loop
