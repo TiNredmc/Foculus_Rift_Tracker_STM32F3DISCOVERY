@@ -162,7 +162,7 @@ int main(void) {
 	//test oled
 		ssd1306_Init();
 		delayms( 100 );
-		ssd1306_WriteString("Testing",Font_11x18,White);
+		ssd1306_WriteString("Init...",Font_11x18,White);
 		ssd1306_UpdateScreen();
 	uint8_t i;	//Generic for loop counter variable
 	/* Setup SysTick event each 1 ms */
