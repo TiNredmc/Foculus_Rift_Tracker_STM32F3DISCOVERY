@@ -113,3 +113,4 @@ Changelog
               Push the user button again for > 1 s to save the setting to FLASH memory
  27.04.2018   Added th OLED library .interface @ i2c number2 .OLED display .e-compass temperature and gyroscope data
  29.04.2018   Changed the OLED i2c timing (400kHz)
+ 02.05.2018   Changed Font from "Font_11x18" to "Font_7x10"
