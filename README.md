@@ -12,6 +12,9 @@ I added the temperature and gyroscope sensor date display out to OLED Display .B
 # update2:
 I changed the i2c timing mode to 400kHz.
 
+# update3:
+Changed Font from "Font_11x18" to "Font_7x10"
+
 # The OLED MUST CONNECTED TO i2c2 not i2c1 .
 The "Foculus Rift" tracker
 ==========================
