@@ -246,7 +246,7 @@ int main(void) {
 	    ssd1306_SetCursor(6,1);//set cursor to x=6 y=1
 	    ssd1306_WriteString(gyroBuffer[0],Font_11x18,White);//show gyro data I think its "x axis"
 	    ssd1306_SetCursor(0,2);//set cursor to x=0 y=2
-	    ssd1306_WriteString("GyroY=",Font_11x18,White);//GyroY
+	    ssd1306_WriteString("GyroY=",Font_11x18,White);//GyroY=
 	    ssd1306_SetCursor(6,2);//set cursor to x=6 y=2
 	    ssd1306_WriteString(gyroBuffer[1],Font_11x18,White);//show gyro data I think its "y axis"
 	    ssd1306_SetCursor(0,3);//set cursor x=0 y=3
