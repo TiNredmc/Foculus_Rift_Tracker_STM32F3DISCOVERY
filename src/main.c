@@ -36,12 +36,6 @@
 // fonts.c          fonts for SSD1036 library
 // ssd1306          library to send data to ssd1306 OLED display.send out from i2c number 2 port.
 
-// THings to implement
-//------------------------------------------------------------------
-// * Evaluate the flags, I still do not have a clue what they are used for
-// * What is this mysterious 16 bit command field in the Oculus packets for?
-// * FixMe: There is this strange synchronization issue, where featureReportData[] sometimes contains invalid data when evaluated in main()
-
 
 // Changelog
 //--------------------------------
