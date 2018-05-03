@@ -58,6 +58,7 @@
 //				Push the user button again for > 1 s to save the setting to FLASH memory
 // 27.04.2018   Added the OLED library .interface @ i2c number2 .OLED display .e-compass temperature and gyroscope data
 // 02.05.2018   Changed Font from "Font_11x18" to "Font_7x10"
+// 03.05.2018   Moved the OLED statement from "while(1)" to void main section.
 //
 
 #pragma pack(1)		//If this is not defined, GCC Will use padding bytes and mess up the union structs
