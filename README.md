@@ -16,7 +16,7 @@ I changed the i2c timing mode to 400kHz.
 Changed Font from "Font_11x18" to "Font_7x10"
 
 # update4:
-The real is shipped to me.So I start testing the pre-built firmware.Too bad luck .the code is execute and stop (Led cycling id not start).So I moved the OLED statement from "while(1)" to void main section.
+The board is shipped to me.So I start testing the pre-built firmware.Too bad luck .the code is execute and stop (Led cycling not start).So I moved the OLED statement from "while(1)" to void main section.
 
 # The OLED MUST CONNECTED TO i2c2 not i2c1 .
 The "Foculus Rift" tracker
@@ -120,4 +120,4 @@ Changelog
  27.04.2018   Added th OLED library .interface @ i2c number2 .OLED display .e-compass temperature and gyroscope data
  29.04.2018   Changed the OLED i2c timing (400kHz)
  02.05.2018   Changed Font from "Font_11x18" to "Font_7x10".I hope the fonts still readable xD.
- 03.05.2018   Moved the OLED statement from "while(1)" to void loop section.
+ 03.05.2018   Moved the OLED statement from "while(1)" to void main section.
