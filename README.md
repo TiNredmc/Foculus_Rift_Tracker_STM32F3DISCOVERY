@@ -15,6 +15,9 @@ I changed the i2c timing mode to 400kHz.
 # update3:
 Changed Font from "Font_11x18" to "Font_7x10"
 
+# update4:
+The real is shipped to me.So I start testing the pre-built firmware.Too bad luck .the code is execute and stop (Led cycling id not start).So I moved the OLED statement from "while(1)" to void main section.
+
 # The OLED MUST CONNECTED TO i2c2 not i2c1 .
 The "Foculus Rift" tracker
 ==========================
