@@ -1,6 +1,6 @@
 Forked By TinLethax
 =
-
+My website :tinlethax.wordpress.com
 # update0:
 I use 4ilo's ssd1306 library .link:https://github.com/4ilo/ssd1306-stm32HAL
 But I replace HAL with "STM32F30x_StdPeriph_Driver" instead ;D 
