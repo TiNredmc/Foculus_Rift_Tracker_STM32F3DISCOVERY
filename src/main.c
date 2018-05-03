@@ -235,7 +235,9 @@ int main(void) {
 			}
 			break;
 		}
-		ssd1306_Init();
+		
+	} // end loop
+	ssd1306_Init();
 	    delayms( 100 );
 	    ssd1306_SetCursor(0,0);//set cursor to x=0 y=0
 	   	ssd1306_WriteString("Temp=",Font_7x10,White);//Temp=
@@ -254,7 +256,6 @@ int main(void) {
 	    ssd1306_SetCursor(6,3);//set cursor x=6 y=3
 	    ssd1306_WriteString(gyroBuffer[2],Font_7x10,White);//show gyro data I think its "z axis"
 	    ssd1306_UpdateScreen();
-	} // end loop
 }//for void main
 
 // Copy data form the memory buffer used by the USB interrupt
