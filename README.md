@@ -88,7 +88,7 @@ LED label     Orientation
 -------------------------------------------------------
 LD3  (Red)    LEDs toward user     USB down
 LD4  (Blue)   LEDs toward user     USB right
-LD5  (Orange) LEDs away from user  USB down
+LD5  (Orange) LEDs away from user  USB left
 LD6  (Green)  LEDs away from user  USB up
 LD7  (Green)  LEDs up              USB toward user
 LD8  (Orange) LEDs up              USB away from user
