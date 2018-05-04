@@ -120,4 +120,5 @@ Changelog
  27.04.2018   Added th OLED library .interface @ i2c number2 .OLED display .e-compass temperature and gyroscope data
  29.04.2018   Changed the OLED i2c timing (400kHz)
  02.05.2018   Changed Font from "Font_11x18" to "Font_7x10".I hope the fonts still readable xD.
- 03.05.2018   Moved the OLED statement from "while(1)" to void main section.
+ 03.05.2018   Moved the OLED statement from "while(1)" to void main section.
+ 04.05.2018   Removed the "Init..."(OLED statement).
