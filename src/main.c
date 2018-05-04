@@ -154,11 +154,11 @@ void handleButton(){
  * @retval None
  */
 int main(void) {
-	//test oled
-		ssd1306_Init();
-		delayms( 100 );
-		ssd1306_WriteString("Init...",Font_7x10,White);//Display "Init..." on Display.
-		ssd1306_UpdateScreen();
+	
+		
+		
+		
+		
 	uint8_t i;	//Generic for loop counter variable
 	/* Setup SysTick event each 1 ms */
 	RCC_GetClocksFreq( &RCC_Clocks );
