@@ -27,11 +27,11 @@ This project comes in useful, if you are building your own DIY Head Mounted Disp
 
 Development blog
 ------------------
-More details about the reverse engineering can be found on the [development blog](http://yetifrisstlama.blogspot.fr/2014/03/the-foculus-rift-part-2-reverse.html).
+Original :More details about the reverse engineering can be found on the [development blog](http://yetifrisstlama.blogspot.fr/2014/03/the-foculus-rift-part-2-reverse.html).
 
 Current Status
 ------------------
-Old code before I will forked to here is normally working.But mine dunknown because I haven't test it.
+Old code before I will forked to here is normally working.The latest code still not testing with the oled yet.
 
 Organization of the code
 -------------------------
@@ -72,7 +72,7 @@ open it with any text editordo you want.allocate for "source [find interface/stl
 
 for Windows (Whatever).
 Apologize .I dont use windows to working on this project ,but you can search "STM32F3 discovery + eclipse + openocd windows"on on internet.It might be help you ;D
-```
+
 
 The firmware, which is contained in the stm32f3_HID_for_real.elf binary file, should be flashed. If everything goes well, you can connect the board on the USB USER connector and it should be recognized as: "Oculus VR, Inc. Tracker DK". That's it, mount the board on your HMD and start up the Oculus World Demo.
 
