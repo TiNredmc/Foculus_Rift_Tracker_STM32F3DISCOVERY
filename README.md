@@ -66,16 +66,16 @@ For Linux (Whatever).
 -2.2 If you wanna build the complete firmware (a.k.a compile and make the firmware).double click at "make all"
 -2.3 If you wanna Flash the firmware directly to the board (NOTE THIS IS IMPORTANT:Connect the usb to the ST-Link header not usb user ,Always connect before will flash).double click at "install-ocd"
 
+for Windows (Whatever).
+Apologize .I dont use windows to working on this project ,but you can search "STM32F3 discovery + eclipse + openocd windows"on on internet.It might be help you ;D
+
 # for someone getting error "Error: open failed"
 Go th the /your/dir/to/the/open/ocd/stm/board/cfg .and find for "stm32f3discovery.cfg"
 open it with any text editordo you want.allocate for "source [find interface/stlink-v2.cfg]" or may be "source [find interface/stlink.cfg]" change it to "source [find interface/stlink-v2-1.cfg]" and save .
 
-for Windows (Whatever).
-Apologize .I dont use windows to working on this project ,but you can search "STM32F3 discovery + eclipse + openocd windows"on on internet.It might be help you ;D
+After flashed the firmware .Try to connect the usb to "USB USER",if the pc recognize as unknow (While in Windows).Try to restart your pc or connect through usb hub.If you run the Oculus World Demo at first time The Tracker will glitchy .Dont worry .try to run the other game like Alone in the rift demo. after the alone bla bla bla is detected the tracker .LED on the STM32F3 will slowly cycling and you will get the realtime (I thought xD) tracking.If you wanna play with Oculus World Demo .Exi the Alone in the rift .and then get into Oculus world demo again.
 
-
-The firmware, which is contained in the stm32f3_HID_for_real.elf binary file, should be flashed. If everything goes well, you can connect the board on the USB USER connector and it should be recognized as: "Oculus VR, Inc. Tracker DK". That's it, mount the board on your HMD and start up the Oculus World Demo.
-
+I tested on linux .Using wine to run windows program such Alone in the rift and Oculus world demo .Nothing wrong .The tracking is work properly.
 
 Calibration and change of orientation
 --------------------------------------
@@ -85,8 +85,8 @@ the board absolutely does not move while the calibration is in progress. The dat
 in FLASH memory and retained after power down.
 
 To change the reported coordinate system and hence the orientation of the board, push the "USER" button
-for > 1 second. Then you will be able to select one out of 8 preconfigured orientation settings,
-indicated by the blinking LED. After pushing the "USER" button again for > 1 second, the setting
+for more than 1 second. Then you will be able to select one out of 8 preconfigured orientation settings,
+indicated by the blinking LED. After pushing the "USER" button again for more than 1 second, the setting
 is also permanently saved to FLASH memory.
 
 One of the following orientations can be chosen at the moment:
@@ -130,3 +130,4 @@ Changelog
  02.05.2018   Changed Font from "Font_11x18" to "Font_7x10".I hope the fonts still readable xD.
  03.05.2018   Moved the OLED statement from "while(1)" to void main section.
  04.05.2018   Removed the "Init..."(OLED statement).
+ 06.50.2018   Added more installation guide and some of descriptions
