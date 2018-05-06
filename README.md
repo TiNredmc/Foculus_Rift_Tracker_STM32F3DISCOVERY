@@ -55,15 +55,23 @@ Organization of the code
 
 Flashing the STM32F3DISCOVERY board
 ------------------------------------
-*For Ubuntu 13:*
+For Linux (Whatever).
 
-1. Install open-ocd, follow the steps [here](http://engineering-diy.blogspot.fr/2012/11/stm32f3-discovery-eclipse-openocd.html) (only the ones related to open-ocd)
+1.Edit the Makefile First ,You must to change the "gcc-arm-none-eabi" dir to where you extracted .(find the "FPU_CFLAGS 	= -L/dir/to/ur/gcc/arm/none/eabi") .Also with openocd ,You must to change th dir of config file .(Located at install-ocd ."install-ocd: $(PROJ_NAME).elf
+	@$(shell killall -9 openocd)
+	@$(shell openocd -f /your/dir/to/the/open/ocd/stm/board/cfg -c init -c"reset halt" -c"flash erase_sector 0 0 127" -c"flash write_image $(PROJ_NAME).elf" -c"reset init" -c"reset run" -c"exit")" )
 
-2. Connect the STM32F3DISCOERY board to the PC on its USB ST-LINK connector
+2.at project explorer in Eclipse Expand the "Foculus_Rift_Tracker_STM32F3DISCOVERY" and expand the "Build Targets" 
+-2.1 If you wanna clean the project (some complied file).double click at "make clean" 
+-2.2 If you wanna build the complete firmware (a.k.a compile and make the firmware).double click at "make all"
+-2.3 If you wanna Flash the firmware directly to the board (NOTE THIS IS IMPORTANT:Connect the usb to the ST-Link header not usb user ,Always connect before will flash).double click at "install-ocd"
 
-3. In a terminal, run this:
-```bash
-sudo openocd -f /usr/local/share/openocd/scripts/board/stm32f3discovery.cfg -c init -c"reset halt" -c"flash erase_sector 0 0 127" -c"flash write_image stm32f3_HID_for_real.elf"
+# for someone getting error "Error: open failed"
+Go th the /your/dir/to/the/open/ocd/stm/board/cfg .and find for "stm32f3discovery.cfg"
+open it with any text editordo you want.allocate for "source [find interface/stlink-v2.cfg]" or may be "source [find interface/stlink.cfg]" change it to "source [find interface/stlink-v2-1.cfg]" and save .
+
+for Windows (Whatever).
+Apologize .I dont use windows to working on this project ,but you can search "STM32F3 discovery + eclipse + openocd windows"on on internet.It might be help you ;D
 ```
 
 The firmware, which is contained in the stm32f3_HID_for_real.elf binary file, should be flashed. If everything goes well, you can connect the board on the USB USER connector and it should be recognized as: "Oculus VR, Inc. Tracker DK". That's it, mount the board on your HMD and start up the Oculus World Demo.
