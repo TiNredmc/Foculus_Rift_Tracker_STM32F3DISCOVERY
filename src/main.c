@@ -60,6 +60,7 @@
 // 02.05.2018   Changed Font from "Font_11x18" to "Font_7x10"
 // 03.05.2018   Moved the OLED statement from "while(1)" to void main section.
 // 04.05.2018   Removed the "Init..."(OLED statement).
+// 06.50.2018   Added more installation guide and some of descriptions
 //
 
 #pragma pack(1)		//If this is not defined, GCC Will use padding bytes and mess up the union structs
