@@ -191,21 +191,22 @@ const uint8_t Hid_StringVendor[HID_SIZ_STRING_VENDOR] =
     USB_STRING_DESCRIPTOR_TYPE,  /* bDescriptorType*/
     /* Manufacturer: 'O', 'c', 'u', 'l', 'u', 's', ' ', 'V', 'R', ',', ' ', 'I', 'n', 'c', '.' */
     'O', 0, 'c', 0, 'u', 0, 'l', 0, 'u', 0, 's', 0, ' ', 0, 'V', 0, 'R', 0, ',', 0, ' ', 0, 'I', 0, 'n', 0, 'c', 0, '.', 0
+  //Oculus VR, Inc.
   };
 
 const uint8_t Hid_StringProduct[HID_SIZ_STRING_PRODUCT] =
   {
     HID_SIZ_STRING_PRODUCT,          /* bLength */
     USB_STRING_DESCRIPTOR_TYPE,        /* bDescriptorType */
-//    'T', 'r', 'a', 'c', 'k', 'e', 'r', ' ', 'D', 'K'
-    'T', 0, 'r', 0, 'a', 0, 'c', 0, 'k', 0, 'e', 0, 'r', 0, ' ', 0, 'D', 0, 'K', 0
+//    'R', 'i', 'f', 't', ' ', 'D', 'K', '2'
+    'R', 0, 'i', 0, 'f', 0, 't', 0, ' ', 0, 'D', 0, 'K', 0, '2', 0  //Rift DK2 ,previously is "Tracker DK"
   };
 uint8_t Hid_StringSerial[HID_SIZ_STRING_SERIAL] =
   {
     HID_SIZ_STRING_SERIAL,           /* bLength */
     USB_STRING_DESCRIPTOR_TYPE,        /* bDescriptorType */
-//'3', '9', 'M', 'A', 'I', '3', 'T', 'G', 'Q', 'K', '3', '7'
-    '3', 0, '9', 0, 'M', 0, 'A', 0, 'I', 0, '3', 0, 'T', 0, 'G', 0, 'Q', 0, 'K', 0, '3', 0, '7', 0
+//'S', 'T', 'M', '3', '2', 'F', '3', 'D', 'I', 'S', 'C', 'O'
+    'S', 0, 'T', 0, 'M', 0, '3', 0, '2', 0, 'F', 0, '3', 0, 'D', 0, 'I', 0, 'S', 0, 'C', 0, 'O', 0//STM32F3DISCO
   };
 
 
