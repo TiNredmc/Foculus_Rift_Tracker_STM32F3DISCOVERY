@@ -60,7 +60,8 @@
 // 02.05.2018   Changed Font from "Font_11x18" to "Font_7x10"
 // 03.05.2018   Moved the OLED statement from "while(1)" to void main section.
 // 04.05.2018   Removed the "Init..."(OLED statement).
-// 06.50.2018   Added more installation guide and some of descriptions
+// 06.05.2018   Added more installation guide and some of descriptions
+// 07.05.2018   I changed the SN to "STM32F3DISCO" and changed the product name form "Tracker DK" to "Rift DK2".
 //
 
 #pragma pack(1)		//If this is not defined, GCC Will use padding bytes and mess up the union structs
@@ -156,9 +157,6 @@ void handleButton(){
  * @retval None
  */
 int main(void) {
-	
-		
-		
 		
 		
 	uint8_t i;	//Generic for loop counter variable
