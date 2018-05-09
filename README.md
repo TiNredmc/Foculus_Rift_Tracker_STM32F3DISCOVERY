@@ -21,6 +21,12 @@ The board is shipped to me.So I start testing the pre-built firmware.Too bad luc
 # update5:
 I changed the SN to "STM32F3DISCO" and changed the product name form "Tracker DK" to "Rift DK2".
 
+# update6: 
+The OLED is arrived .Too bad luck .The oled display with $h1tty gliched dots .It caused by the sending data method .
+I have two wat to fix 
+-Migrate all library to HAL 
+-Make my own library (not intergrated in peripheral.h/.c because I can use it in later).
+
 # The OLED MUST CONNECTED TO i2c2 not i2c1 .
 The "Foculus Rift" tracker
 ==========================
