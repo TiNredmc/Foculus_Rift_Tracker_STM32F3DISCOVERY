@@ -27,6 +27,9 @@ I have two wat to fix
 -Migrate all library to HAL 
 -Make my own library (not intergrated in peripheral.h/.c because I can use it in later).
 
+# update7:
+I tired to port from the HAL library .It still bot working yet.So I will use adafruit library (mostly copy the funtional amd change tge some interface syntaxes.
+
 # The OLED MUST CONNECTED TO i2c2 not i2c1 .
 The "Foculus Rift" tracker
 ==========================
@@ -65,7 +68,7 @@ Organization of the code
 Flashing the STM32F3DISCOVERY board
 ------------------------------------
 For Linux (Whatever).
-
+on Eclipse c/c++ (install steps is here http://engineering-diy.blogspot.fr/2012/11/stm32f3-discovery-eclipse-openocd.html )
 1.Edit the Makefile First ,You must to change the "gcc-arm-none-eabi" dir to where you extracted .(find the "FPU_CFLAGS 	= -L/dir/to/ur/gcc/arm/none/eabi") .Also with openocd ,You must to change th dir of config file .(Located at install-ocd ."install-ocd: $(PROJ_NAME).elf
 	@$(shell killall -9 openocd)
 	@$(shell openocd -f /your/dir/to/the/open/ocd/stm/board/cfg -c init -c"reset halt" -c"flash erase_sector 0 0 127" -c"flash write_image $(PROJ_NAME).elf" -c"reset init" -c"reset run" -c"exit")" )
