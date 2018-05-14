@@ -85,10 +85,10 @@ for Windows (Whatever).
 Apologize .I dont use windows to working on this project ,but you can search "STM32F3 discovery + eclipse + openocd windows"on on internet.It might be help you ;D
 
 # for someone getting error "Error: open failed"
-Go th the /your/dir/to/the/open/ocd/stm/board/cfg .and find for "stm32f3discovery.cfg"
-open it with any text editordo you want.allocate for "source [find interface/stlink-v2.cfg]" or may be "source [find interface/stlink.cfg]" change it to "source [find interface/stlink-v2-1.cfg]" and save .
+Go th the /your/dir/to/the/open/ocd/stm/board/.cfg .and find for "stm32f3discovery.cfg"
+open it with any text editor do you want.allocate for "source [find interface/stlink-v2.cfg]" or may be "source [find interface/stlink.cfg]" change it to "source [find interface/stlink-v2-1.cfg]" and save .
 
-After flashed the firmware .Try to connect the usb to "USB USER",if the pc recognize as unknow (While in Windows).Try to restart your pc or connect through usb hub.If you run the Oculus World Demo at first time The Tracker will glitchy .Dont worry .try to run the other game like Alone in the rift demo. after the alone bla bla bla is detected the tracker .LED on the STM32F3 will slowly cycling and you will get the realtime (I thought xD) tracking.If you wanna play with Oculus World Demo .Exi the Alone in the rift .and then get into Oculus world demo again.
+After flashed the firmware .Try to connect the usb to "USB USER",if the pc recognize as unknow (While in Windows).Try to restart your pc or connect through usb hub.If you run the Oculus World Demo at first time The Tracker will glitchy .Dont worry .try to run the other game like "Alone in the rift demo". after the alone bla bla bla is detected the tracker .LED on the STM32F3 will slowly cycling and you will get the realtime (I thought xD) tracking.If you wanna play with Oculus World Demo .Exi the Alone in the rift .and then get into Oculus world demo again.
 
 I tested on linux .Using wine to run windows program such Alone in the rift and Oculus world demo .Nothing wrong .The tracking is work properly.
 
