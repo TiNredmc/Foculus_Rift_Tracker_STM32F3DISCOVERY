@@ -30,6 +30,9 @@ I have two wat to fix
 # update7:
 I tired to port from the HAL library .It still bot working yet.So I will use adafruit library (mostly copy the funtional amd change tge some interface syntaxes.
 
+# update8:
+I really need to make my own library or maybe mod 4ilo's Lib.No HAL ,Just SPL ,Raw SPL . 
+
 # The OLED MUST CONNECTED TO i2c2 not i2c1 .
 The "Foculus Rift" tracker
 ==========================
