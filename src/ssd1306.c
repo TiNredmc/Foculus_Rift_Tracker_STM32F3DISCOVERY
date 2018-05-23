@@ -15,17 +15,17 @@ void i2c2_init(void)
 
 	RCC_I2CCLKConfig(RCC_I2C2CLK_SYSCLK);
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_I2C2, ENABLE);
-	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOF, ENABLE);
 
-	GPIO_PinAFConfig(GPIOA, GPIO_PinSource9, GPIO_AF_4);
-	GPIO_PinAFConfig(GPIOA, GPIO_PinSource10, GPIO_AF_4);
+	GPIO_PinAFConfig(GPIOF, GPIO_PinSource1, GPIO_AF_4);
+	GPIO_PinAFConfig(GPIOF, GPIO_PinSource0, GPIO_AF_4);
 
-	gpio.GPIO_Pin		= GPIO_Pin_9 | GPIO_Pin_10;
+	gpio.GPIO_Pin		= GPIO_Pin_1 | GPIO_Pin_0;
 	gpio.GPIO_Mode		= GPIO_Mode_AF;
 	gpio.GPIO_OType		= GPIO_OType_OD;
 	gpio.GPIO_PuPd 		= GPIO_PuPd_NOPULL;
 	gpio.GPIO_Speed		= GPIO_Speed_50MHz;
-	GPIO_Init(GPIOA, &gpio);
+	GPIO_Init(GPIOF, &gpio);
 
 	I2C_DeInit(I2C2);
 	i2c.I2C_Mode		= I2C_Mode_I2C;
@@ -39,37 +39,39 @@ void i2c2_init(void)
 	I2C_Cmd(I2C2, ENABLE);
 }
 
-void i2c_wr(uint8_t slave, uint8_t reg, uint8_t data)
+/*void i2c_wr(uint8_t slave, uint8_t reg, uint8_t data)
 {
 	//Wait until I2C isn't busy
-	while (I2C_GetFlagStatus(I2C2, I2C_FLAG_BUSY) == SET) {};
+	//while (I2C_GetFlagStatus(I2C2, I2C_FLAG_BUSY) == SET) {};
 	I2C_TransferHandling(I2C2, slave, 1, I2C_Reload_Mode, I2C_Generate_Start_Write);
 	//Ensure the transmit interrupted flag is set
-	while (I2C_GetFlagStatus(I2C2,I2C_ISR_TXIS) == RESET) {};
+	//while (I2C_GetFlagStatus(I2C2,I2C_ISR_TXIS) == RESET) {};
 	//Send the address of the register we wish to write to
 	I2C_SendData(I2C2, (uint8_t)reg);
 	//Ensure the transmit interrupted flag is set
-	while (I2C_GetFlagStatus(I2C2, I2C_ISR_TCR) == RESET) {};
+	//while (I2C_GetFlagStatus(I2C2, I2C_ISR_TCR) == RESET) {};
 	I2C_TransferHandling(I2C2, slave, 1, I2C_AutoEnd_Mode, I2C_No_StartStop);
 
 	// wait until the transmit interrupt flag is set
-	while (I2C_GetFlagStatus(I2C2, I2C_ISR_TXIS) == RESET) {};
+	//while (I2C_GetFlagStatus(I2C2, I2C_ISR_TXIS) == RESET) {};
 	//Send the value you wish you write to the register
 	I2C_SendData(I2C2, data);
 	while (I2C_GetFlagStatus(I2C2, I2C_ISR_STOPF) == RESET) {};
 	//Clear the stop flag for the next potential transfer
 	I2C_ClearFlag(I2C2, I2C_ISR_STOPF);
-}
+} */
 
 //
 //  Send a byte to the command register
 //
 static void ssd1306_WriteCommand(uint8_t command)
 {
-	i2c2_init();
-	delayms( 10 );
-	I2C_NumberOfBytesConfig(I2C2,1);
-	i2c_wr(SSD1306_I2C_ADDR,0x00,command);
+	//i2c2_init();
+
+	I2C_SendData(I2C2, 0x00);
+	//delayms( 10 );
+	I2C_SendData(I2C2,command);
+	//i2c_wr(SSD1306_I2C_ADDR,0x00,command);
 //HAL_I2C_Mem_Write(&hi2c1,SSD1306_I2C_ADDR,0x00,1,&command,1,10);
 }
 
@@ -80,8 +82,9 @@ static void ssd1306_WriteCommand(uint8_t command)
 uint8_t ssd1306_Init(void)
 {	
 	// Wait for the screen to boot
+	i2c2_init();
 	delayms( 100 );
-	
+
 	/* Init LCD */
 	ssd1306_WriteCommand(0xAE); //display off
 	ssd1306_WriteCommand(0x20); //Set Memory Addressing Mode   
@@ -92,11 +95,11 @@ uint8_t ssd1306_Init(void)
 	ssd1306_WriteCommand(0x10); //---set high column address
 	ssd1306_WriteCommand(0x40); //--set start line address
 	ssd1306_WriteCommand(0x81); //--set contrast control register
-	ssd1306_WriteCommand(0xFF);
-	ssd1306_WriteCommand(0xA1); //--set segment re-map 0 to 127
+	ssd1306_WriteCommand(0x8F);
+	ssd1306_WriteCommand(0xA0); //--set segment re-map 0 to 127
 	ssd1306_WriteCommand(0xA6); //--set normal display
-	ssd1306_WriteCommand(0xA8); //--set multiplex ratio(1 to 64)
-	ssd1306_WriteCommand(0x3F); //
+	ssd1306_WriteCommand(0xA8); //--set multiplex ratio(1 to 32)address 0-31
+	ssd1306_WriteCommand(0x1F); //
 	ssd1306_WriteCommand(0xA4); //0xa4,Output follows RAM content;0xa5,Output ignores RAM content
 	ssd1306_WriteCommand(0xD3); //-set display offset
 	ssd1306_WriteCommand(0x00); //-not offset
@@ -105,9 +108,9 @@ uint8_t ssd1306_Init(void)
 	ssd1306_WriteCommand(0xD9); //--set pre-charge period
 	ssd1306_WriteCommand(0x22); //
 	ssd1306_WriteCommand(0xDA); //--set com pins hardware configuration
-	ssd1306_WriteCommand(0x12);
+	ssd1306_WriteCommand(0x02);
 	ssd1306_WriteCommand(0xDB); //--set vcomh
-	ssd1306_WriteCommand(0x20); //0x20,0.77xVcc
+	ssd1306_WriteCommand(0x40); //0x20,0.77xVcc
 	ssd1306_WriteCommand(0x8D); //--set DC-DC enable
 	ssd1306_WriteCommand(0x14); //
 	ssd1306_WriteCommand(0xAF); //--turn on SSD1306 panel
@@ -147,15 +150,18 @@ void ssd1306_Fill(SSD1306_COLOR color)
 void ssd1306_UpdateScreen(void) 
 {
 	uint8_t i;
-	
+	I2C_NumberOfBytesConfig(I2C2,SSD1306_WIDTH);
 	for (i = 0; i < 8; i++) {
+
 		ssd1306_WriteCommand(0xB0 + i);
 		ssd1306_WriteCommand(0x00);
 		ssd1306_WriteCommand(0x10);
-        i2c2_init();
-	    delayms( 100 );
-	    I2C_NumberOfBytesConfig(I2C2,SSD1306_WIDTH);
-	    i2c_wr(SSD1306_I2C_ADDR,0x40,SSD1306_Buffer[SSD1306_WIDTH * i]);
+		//I2C_NumberOfBytesConfig(I2C2,SSD1306_WIDTH);
+		//delayms( 10 );
+	    I2C_SendData(I2C2, 0x40);
+	    //delayms( 10 );
+	    I2C_SendData(I2C2, SSD1306_Buffer[SSD1306_WIDTH * i]);
+	//i2c_wr(SSD1306_I2C_ADDR,0x40,SSD1306_Buffer[SSD1306_WIDTH * i]);
 	//HAL_I2C_Mem_Write(&hi2c1,SSD1306_I2C_ADDR,0x40,1,&SSD1306_Buffer[SSD1306_WIDTH * i],SSD1306_WIDTH,100);
 	}
 }
