@@ -33,6 +33,9 @@ I tired to port from the HAL library .It still bot working yet.So I will use ada
 # update8:
 I really need to make my own library or maybe mod 4ilo's Lib.No HAL ,Just SPL ,Raw SPL . 
 
+# update9:
+I given up on this OLED.I decided to change the OLED display to This one (Also WIP):https://github.com/TiNredmc/HDSP2000
+So I really nned to rip-off the old OLED libraries then replace whit my project (May be soon...)
 # The OLED MUST CONNECTED TO i2c2 not i2c1 .
 The "Foculus Rift" tracker
 ==========================
