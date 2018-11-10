@@ -36,6 +36,9 @@ I really need to make my own library or maybe mod 4ilo's Lib.No HAL ,Just SPL ,R
 # update9:
 I given up on this OLED.I decided to change the OLED display to This one (Also WIP):https://github.com/TiNredmc/HDSP2000
 So I really nned to rip-off the old OLED libraries then replace whit my project (May be soon...)
+
+# update10: 
+I relise that HDSP 2000 are quite haed to find .And  Im working on SCDV5542 display to be woring on the stm32f3 disco using AC6 IDE instead of using eclipe + openocd ,Ad plan to move the project to new AC6's project ,for debugging feature and more reliable coding experience with the SCDV5542 library 
 # The OLED MUST CONNECTED TO i2c2 not i2c1 .
 The "Foculus Rift" tracker
 ==========================
