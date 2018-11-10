@@ -33,8 +33,7 @@
 // usb_endp.c       STM USB driver endpoint1 callbacks, just sets some global flags to inform the main routine when there is new data
 // usb_prop.c       Customization of the STM USB driver, so feature reports can be sent and received
 //                  received data is copied in the global array featureReportData[] and then processed by the main loop
-// fonts.c          fonts for SSD1036 library
-// ssd1306          library to send data to ssd1306 OLED display.send out from i2c number 2 port.
+
 
 
 // Changelog
@@ -62,8 +61,7 @@
 // 04.05.2018   Removed the "Init..."(OLED statement).
 // 06.05.2018   Added more installation guide and some of descriptions
 // 07.05.2018   I changed the SN to "STM32F3DISCO" and changed the product name form "Tracker DK" to "Rift DK2".
-//
-
+// 10.11.2018   I removed the S#*T OLED and Im gonna use SCDV5542 instead "WIP"
 #pragma pack(1)		//If this is not defined, GCC Will use padding bytes and mess up the union structs
 
 /* Includes ------------------------------------------------------------------*/
@@ -73,8 +71,6 @@
 #include "stm32f3_discovery.h"
 #include "globalVariables.h"
 #include "peripherals.h"
-#include "ssd1306.h"
-#include "fonts.h"
 /* Init global variables -----------------------------------------------------*/
 RiftDisplayInfoFrameSep dataDisplayInfo;
 RiftKeepAliveFrameSep dataKeepAlive;
@@ -238,25 +234,7 @@ int main(void) {
 		}
 		
 	} // end loop
-	ssd1306_Init();
-	    delayms( 100 );
-	    ssd1306_SetCursor(0,0);//set cursor to x=0 y=0
-	   	ssd1306_WriteString("Temp=",Font_7x10,White);//Temp=
-	    ssd1306_SetCursor(5,0);//set cursor to x=5 y=0
-	    ssd1306_WriteString(tempBuffer,Font_7x10,White); //Temp=tempBuffer value
-	    ssd1306_SetCursor(0,1);//set cursor to x=0 y=1
-	    ssd1306_WriteString("GyroX=",Font_7x10,White);//GyroX=
-	    ssd1306_SetCursor(6,1);//set cursor to x=6 y=1
-	    ssd1306_WriteString(gyroBuffer[0],Font_7x10,White);//show gyro data I think its "x axis"
-	    ssd1306_SetCursor(0,2);//set cursor to x=0 y=2
-	    ssd1306_WriteString("GyroY=",Font_7x10,White);//GyroY=
-	    ssd1306_SetCursor(6,2);//set cursor to x=6 y=2
-	    ssd1306_WriteString(gyroBuffer[1],Font_7x10,White);//show gyro data I think its "y axis"
-	    ssd1306_SetCursor(0,3);//set cursor x=0 y=3
-	    ssd1306_WriteString("GyroZ=",Font_7x10,White);//GyroZ=
-	    ssd1306_SetCursor(6,3);//set cursor x=6 y=3
-	    ssd1306_WriteString(gyroBuffer[2],Font_7x10,White);//show gyro data I think its "z axis"
-	    ssd1306_UpdateScreen();
+	
 }//for void main
 
 // Copy data form the memory buffer used by the USB interrupt
